@@ -194,6 +194,7 @@ type module struct {
 	MessageAuthenticationCode uint64
 	CompressedSize            uint32
 	UncompressedSize          uint32
+	// payload data follows immediately after UncompressedSize, but is variably-sized so can't be built into struct
 }
 
 // https://github.com/TheWover/donut/blob/dafea1702ce2e71d5139c4d583627f7ee740f3ae/include/donut.h#L261-L405
@@ -207,6 +208,7 @@ type instanceHeader struct {
 	OriginalEntryPoint     uint64
 }
 
+// body is encrypted by instanceHeader.crypt, and so they can't be unified as we will have to decrypt below first
 type instanceBody struct {
 	ApiHashCount               uint32
 	LoadDLLs                   [MaxNameLength]byte
