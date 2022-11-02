@@ -28,10 +28,6 @@ go build -o build/nutextractor.exe .
 
 **Packer Identification**
 
-```bash
-nutex identify <file>
-```
-
 Example:
 ```bash
 nutex.exe tastetest C:\Users\user\Desktop\Tools\donut_v0.9.3\loaderARGSWENTRY.bin
